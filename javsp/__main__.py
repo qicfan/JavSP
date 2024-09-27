@@ -311,6 +311,7 @@ def generate_names(movie: Movie):
             if remaining > 0:
                 movie.save_dir = save_dir
                 movie.basename = basename
+                copyd['basename'] = basename
                 movie.nfo_file = os.path.join(save_dir, Cfg().summarizer.nfo.basename_pattern.format(**copyd) + '.nfo')
                 movie.fanart_file = os.path.join(save_dir, Cfg().summarizer.fanart.basename_pattern.format(**copyd) + '.jpg')
                 movie.poster_file = os.path.join(save_dir, Cfg().summarizer.cover.basename_pattern.format(**copyd) + '.jpg')
@@ -334,6 +335,7 @@ def generate_names(movie: Movie):
             basename = os.path.normpath(Cfg().summarizer.path.basename_pattern.format(**copyd)).strip()
         movie.save_dir = save_dir
         movie.basename = basename
+        copyd['basename'] = basename
 
         movie.nfo_file = os.path.join(save_dir, Cfg().summarizer.nfo.basename_pattern.format(**copyd) + '.nfo')
         movie.fanart_file = os.path.join(save_dir, Cfg().summarizer.fanart.basename_pattern.format(**copyd) + '.jpg')
